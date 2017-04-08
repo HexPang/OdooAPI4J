@@ -44,7 +44,10 @@ class Partner extend BaseModel {
 
 ### Config in **APIHelper.java**
 ```java
-    private final String HOST_KEY = System.getProperty("HOST_NAME");
-    private final int PORT_KEY = Integer.valueOf(System.getProperty("PORT_NUM"));
-    private final String DATABASENAME_KEY = System.getProperty("DB_NAME");
+    private ResourceBundle bundler = ResourceBundle.getBundle("odooCfg");
+    private final String HOST_KEY = bundler.getString("HOST_NAME");
+    private final int PORT_KEY = Integer.valueOf(bundler.getString("PORT_NUM"));
+    private final String DATABASENAME_KEY = bundler.getString("DB_NAME");
 ```
+
+> you can edit in odooCfg.properties
