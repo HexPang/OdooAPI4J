@@ -218,7 +218,7 @@ public class APIHelper extends Helper {
      * @throws MalformedURLException
      * @throws XmlRpcException
      */
-    public <T> T searchRead(String model,Class cls,List list) throws InstantiationException, IllegalAccessException, MalformedURLException, XmlRpcException {
+    public <T> T searchRead(String model,Class cls,List... list) throws InstantiationException, IllegalAccessException, MalformedURLException, XmlRpcException {
         Object[] obj = (Object[])execute_kw(model,"search_read",asList(asList(list)));
         if(obj.length > 0){
             if(obj.length > 1){
