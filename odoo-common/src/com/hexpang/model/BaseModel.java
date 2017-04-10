@@ -22,6 +22,21 @@ public class BaseModel extends Entity {
         }
         return apiHelper;
     }
+    
+    public <T> T[] All(){
+        try {
+            return getApiHelper().searchRead(Table(),this.getClass(),Arrays.asList("id",">",0));
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (XmlRpcException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public int Create(){
         try {
